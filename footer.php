@@ -5,14 +5,14 @@
             <div class="col l6 s12">
             <h5 class="white-text">Company Bio</h5>
             <p class="grey-text text-lighten-4">
-                LaundryKu adalah sebuah projek yang ditujukan sebagai tugas akhir untuk mata kuliah "Basis Data Lanjut" pada Program Studi Informatika, Fakultas MIPA, Universitas Udayana.<br/>
-                Segala bentuk dukungan akan sangat membantu kami dalam menyelesaikan projek ini. Terima Kasih.
+                MyLaundry adalah sebuah projek yang ditujukan untuk tugas akhir mata kuliah "Rekayasa Perangkat Lunak" pada Program Studi Ilmu Komputer IPB University.
+                Akhirnya kelar makkkkkkkkk
             </p>
 
 
             </div>
             <div class="col l3 s12">
-            <h5 class="white-text">Laundryku</h5>
+            <h5 class="white-text">MyLaundry</h5>
             <ul>
                 <li><a class="white-text" href="index.php">Home</a></li>
                 <li><a class="white-text" href="term.php">Term and Condition</a></li>
@@ -23,17 +23,16 @@
             <div class="col l3 s12">
             <h5 class="white-text">Developer</h5>
             <ul>
-                <li><a class="white-text" href="team.php">Nadya Okatviana</a></li>
-                <li><a class="white-text" href="team.php">Eka Nadya</a></li>
-                <li><a class="white-text" href="team.php">Hairul Lana</a></li>
-                <li><a class="white-text" href="team.php">Wina Artha Setiawan</a></li>
+                <li><a class="white-text" href="team.php">Made Althaaf Naufal Gusendra</a></li>
+                <li><a class="white-text" href="team.php">Muhamad Surya Fauzan</a></li>
+                <li><a class="white-text" href="team.php"> Jihan Febriharvianti Wirawan</a></li>
             </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            Made by <a class="orange-text text-lighten-3" href="http://instagram.com/althaaf1601">Kelompok 9</a>
         </div>
     </div>
 </footer>

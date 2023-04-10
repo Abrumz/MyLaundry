@@ -137,6 +137,7 @@ if (isset($_POST["submitSorting"])){
                     <?php else : ?>
                         <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
                             <a href="registrasi.php" id="download-button" class="btn-large waves-effect waves-light blue darken-3">Daftar Sekarang</a>
+                            <a href="login.php" id="download-button" class="btn-large waves-effect waves-light blue darken-3">Login</a>
                         </div>
                     <?php endif ?>
                 </div>

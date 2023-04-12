@@ -4,253 +4,504 @@ session_start();
 include 'connect-db.php';
 
 
-//konfirgurasi pagination
-$jumlahDataPerHalaman = 3;
-$query = mysqli_query($connect,"SELECT * FROM agen");
-$jumlahData = mysqli_num_rows($query);
-//ceil() = pembulatan ke atas
-$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
-
-//menentukan halaman aktif
-//$halamanAktif = ( isset($_GET["page"]) ) ? $_GET["page"] : 1; = versi simple
-if ( isset($_GET["page"])){
-    $halamanAktif = $_GET["page"];
-}else{
-    $halamanAktif = 1;
-}
-
-//data awal
-$awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;
-
-//fungsi memasukkan data di db ke array
-$agen = mysqli_query($connect,"SELECT * FROM agen LIMIT $awalData, $jumlahDataPerHalaman");
-
-
-
-//ketika tombol cari ditekan
-if ( isset($_POST["cari"])) {
-    $keyword = htmlspecialchars($_POST["keyword"]);
-
-    $query = "SELECT * FROM agen WHERE 
-        kota LIKE '%$keyword%' OR
-        nama_laundry LIKE '%$keyword%'
-        LIMIT $awalData, $jumlahDataPerHalaman
-    ";
-
-    $agen = mysqli_query($connect,$query);
-
-    //konfirgurasi pagination
-    $jumlahDataPerHalaman = 3;
-    $jumlahData = mysqli_num_rows($agen);
-    //ceil() = pembulatan ke atas
-    $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
-
-    //menentukan halaman aktif
-    //$halamanAktif = ( isset($_GET["page"]) ) ? $_GET["page"] : 1; = versi simple
-    if ( isset($_GET["page"])){
-        $halamanAktif = $_GET["page"];
-    }else{
-        $halamanAktif = 1;
-    }
-}
-
-
-if (isset($_POST["submitSorting"])){
-    $sorting = $_POST["sorting"];
-
-    $agen = mysqli_query($connect, "SELECT * FROM agen JOIN harga ON agen.id_agen = harga.id_agen WHERE harga.jenis = 'komplit' ORDER BY harga.harga ASC LIMIT $awalData, $jumlahDataPerHalaman");
-}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    
-    <title>MyLaundry</title>
-    <?php include 'headtags.html' ?>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyLaundry</title>
+  <link rel="shortcut icon" href="img/MyLaundry1.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <!-- <include headtags.html> -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  
 </head>
+
 <body>
-
-    <?php include 'header.php'; ?>
-
-        <div class="container">
-            <br>
-            <h1 class="header center orange-text"><img src="img/MyLaundry1.png" width=100% alt=""></h1>
-            <div class="row center">
-                <h5 class="header col s12 light">Ada Baju Kotor dan Anda Malas?</h5>
-                <h5 class="header col s12 light">Tenang ada MyLaundry</h5>
-            </div>
-
-            <!-- menu -->
-            <div class="row center">
-                <div id="body">
-                    <?php if ( isset($_SESSION["login-pelanggan"]) && isset($_SESSION["pelanggan"]) ) : ?>
-                        <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="pelanggan.php">Profil Saya</a>
-                            <?php 
-                            $idPelanggan = $_SESSION['pelanggan'];
-                            $cek = mysqli_query($connect,"SELECT * FROM cucian WHERE id_pelanggan = $idPelanggan AND status_cucian != 'Selesai'");
-                            if (mysqli_num_rows($cek) > 0){
-                                $status = "Status Cucian<i class='material-icons right'>notifications_active</i>";
-                            }else {
-                                $status = "Status Cucian";
-                            }
-
-                            $cek = mysqli_query($connect,"SELECT * FROM transaksi WHERE id_pelanggan = $idPelanggan AND rating = 0 OR komentar = ''");
-                            if (mysqli_num_rows($cek) > 0){
-                                $transaksi = "Riwayat Transaksi<i class='material-icons right'>notifications_active</i>";
-                            }else {
-                                $transaksi = "Riwayat Transaksi";
-                            }
-
-                            ?>
-
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="status.php"><?= $status ?></a>
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="transaksi.php"><?= $transaksi ?></a>
-                        </div>
-                    <?php elseif ( isset($_SESSION["login-agen"]) && isset($_SESSION["agen"]) ) : ?>
-                        <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                        <?php
-                        $idAgen = $_SESSION['agen'];
-                        $cek = mysqli_query($connect,"SELECT * FROM cucian WHERE id_agen = $idAgen AND status_cucian != 'Selesai'");
-                        if (mysqli_num_rows($cek) > 0){
-                            $status = "Status Cucian<i class='material-icons right'>notifications_active</i>";
-                        }else {
-                            $status = "Status Cucian";
-                        }
-                        ?>
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="agen.php">Profil Saya</a>
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="status.php"><?= $status ?></a>
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="transaksi.php">Riwayat Transaksi</a>
-                        </div>
-                    <?php elseif ( isset($_SESSION["login-admin"]) && isset($_SESSION["admin"]) ) : ?>
-                        <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="admin.php">Profil Saya</a>
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="status.php">Status Cucian</a>
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="transaksi.php">Riwayat Transaksi</a>
-                            <br><br>
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="list-agen.php">Data Agen</a>
-                            <a id="download-button" class="btn-large waves-effect waves-light blue darken-3" href="list-pelanggan.php">Data Pelanggan</a>
-                        </div>
-                    <?php else : ?>
-                        <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                            <a href="registrasi.php" id="download-button" class="btn-large waves-effect waves-light blue darken-3">Daftar Sekarang</a>
-                            <a href="login.php" id="download-button" class="btn-large waves-effect waves-light blue darken-3">Login</a>
-                        </div>
-                    <?php endif ?>
-                </div>
-            <!-- end menu -->
-            </div>
-            <br>
+  <main>
+    <header id="header" style="background-color:#f7ecdf;">
+      <div class="container">
+        <div class="overlay overlay-lg">
+          <img src="./img/shapes/square.png" class="shape square" alt="" />
+          <img src="./img/shapes/circle.png" class="shape circle" alt="" />
+          <img src="./img/shapes/half-circle.png" class="shape half-circle1" alt="" />
+          <img src="./img/shapes/half-circle.png" class="shape half-circle2" alt="" />
+          <img src="./img/shapes/x.png" class="shape xshape" alt="" />
+          <img src="./img/shapes/wave.png" class="shape wave wave1" alt="" />
+          <img src="./img/shapes/wave.png" class="shape wave wave2" alt="" />
+          <img src="./img/shapes/triangle.png" class="shape triangle" alt="" />
+          <img src="./img/MyLaundry1.png" class="shape wave wave1" alt="" />
+          <img src="./img/shapes/points1.png" class="points points1" alt="" />
         </div>
 
+        <nav>
+          <div class="container">
+            <div class="logo">
+            <a href="index.php"><img src="img/MyLaundry1.png" style="top: 0; left: 0; width: 130px; height: 60px;">
+                </a>
+            </div>
 
-    <!-- searching -->
-    <form class="col s12 center" action="" method="post">
-        <div class="input-field inline">
-            <input type="text" size=40 name="keyword" placeholder="Kota / Kabupaten" id="keyword" autofocus autocomplete="off">
-            <!-- <a href="#search"><button type="submit" class="btn waves-effect blue darken-2" id="cariData" name="cari"><i class="material-icons">search</i></button></a> -->
-        </div>
-    </form>
-    <!-- end searching -->
-
-    <div id="container">
-        <!-- pagination -->
-        <div id="search">
-            <ul class="pagination center">
-            <?php if( $halamanAktif > 1 ) : ?>
-                <li class="disabled-effect blue darken-1">
-                    <!-- halaman pertama -->
-                    <a href="?page=<?= $halamanAktif - 1; ?>"><i class="material-icons">chevron_left</i></a>
+            <div class="links">
+              <ul>
+                <li>
+                  <a href="#header">Home</a>
                 </li>
-            <?php endif; ?>
-            <?php for( $i = 1; $i <= $jumlahHalaman; $i++ ) : ?>
-                <?php if( $i == $halamanAktif ) : ?>
-                    <li class="active grey"><a href="?page=<?= $i; ?>"><?= $i ?></a></li>
-                <?php else : ?>
-                    <li class="waves-effect blue darken-1"><a href="?page=<?= $i; ?>"><?= $i ?></a></li>
-                <?php endif; ?>
-            <?php endfor; ?>
-            <?php if( $halamanAktif < $jumlahHalaman ) : ?>
-                <li class="waves-effect blue darken-1">
-                    <a class="page-link" href="?page=<?= $halamanAktif + 1; ?>"><i class="material-icons">chevron_right</i></a>
+                <li>
+                  <a href="#services">Lokasi Kami</a>
                 </li>
-            <?php endif; ?>
-            </ul>
-        </div>
-        <!-- pagination -->
-
-
-        <!-- sorting -->
-        <!-- <div class="row">
-            <div class="col s4 offset-s4">
-                <form action="" method="post">
-                    <label for="sorting">Sorting</label>
-                    <select class="browser-default" name="sorting" id="sorting">
-                        <option disabled>Sorting</option>
-                        <option value="hargaDown">Harga Terendah</option>
-                    </select>
-                    <div class="center"><button class="btn blue darken-2" type="submit" name="submitSorting"><i class="material-icons">send</i></button></div>
-                </form>
+                <li>
+                  <a href="#about">Tentang Kami</a>
+                </li>
+                <li>
+                  <a href="#contact">Hubungi Kami</a>
+                </li>
+                <li>
+                  <a href="#testimoni">Testimoni</a>
+                </li>
+                <li>
+                <a href="login.php" class="active" style="background-color:#356D65;">Login</a>
+                </li>
+              </ul>
             </div>
-        </div> -->
-        <!-- end sorting -->
 
-        <!-- list agen -->
-    
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="header-content">
+          <div class="container grid-2">
+          <div class="column-1 image">
+              <img src="./img/shapes/points2.png" class="points points3" alt="" />
+              <img src="./img/image.png" class="img-element z-index" alt="" />
+            </div>
+
+            <div class="column-2">
+              <h1 class="header-title">Mau <span style="color:#356D65; font-weight:bold; text-decoration:underline;">Nyuci</span> Tapi <span style="color:#356D65; font-weight:bold; text-decoration:underline;">Gak Ada Waktu</span> Buat Nyuci?</h1>
+              <p class="text">
+                Serahin aja ke kita buat <span style="color:#356D65; font-weight:bold;">dicuci</span> dan kamu bisa <b>lanjut ngerjain tugasmu</b>
+                atau beraktivitas di luar rumah tanpa khawatir cucian menumpuk di
+                rumah, kos atau di kontrakan.
+              </p>
+              <a href="#" class="btn" style="background-color:transparent; color:#356D65; border: solid 1px #356D65;">Cek Outlet</a>
+              <a href="login.php" class="btn" style="background-color:#356D65;">Booking Now!!</a>
+            </div>
+
+          </div>
+        </div>
+    <!-- <section class="services section" id="services"> -->
         <div class="container">
-            <div class="section">
-
-                <!--   Icon Section   -->
-                <div class="row card">
-                    <?php foreach ( $agen as $dataAgen) : ?>
-                        <div class="col s12 m4">
-                            <div class="icon-block center">
-                                <h2 class="center light-blue-text"><a href="detail-agen.php?id=<?= $dataAgen['id_agen'] ?>"><img src="img/agen/<?= $dataAgen['foto'] ?>" class="circle resposive-img" width=60% /></a></h2>
-                                <h5 class="center"><a href="detail-agen.php?id=<?= $dataAgen['id_agen'] ?>"><?= $dataAgen["nama_laundry"] ?></a></h5>
-                                <?php
-                                    $temp = $dataAgen["id_agen"];
-                                    $queryStar = mysqli_query($connect,"SELECT * FROM transaksi WHERE id_agen = '$temp'");
-                                    $totalStar = 0;
-                                    $i = 0;
-                                    while ($star = mysqli_fetch_assoc($queryStar)){
-
-                                        // kalau belum kasi rating gk dihitung
-                                        if ($star["rating"] != 0){
-                                            $totalStar += $star["rating"];
-                                            $i++;
-                                            $fixStar = ceil($totalStar / $i);
-                                        }
-                                    }
-                                        
-                                    if ( $totalStar == 0 ) {
-                                ?>
-                                    <center><fieldset class="bintang"><span class="starImg star-0"></span></fieldset></center>
-                                <?php }else { ?>
-                                    <center><fieldset class="bintang"><span class="starImg star-<?= $fixStar ?>"></span></fieldset></center>
-                                <?php } ?>
-
-                                <p class="light">
-                                    Alamat : <?= $dataAgen["alamat"] . ", " . $dataAgen["kota"]  ?>
-                                    <br/>Telp : <?= $dataAgen["telp"] ?></p>
-                                </p>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-            </div>
-            <br><br>
+          <div class="section-header">
+            <h3 class="title" data-title="Yuk Cek">Apa Sih Kelebihan Kami</h3>
+            <!-- <p class="text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias,
+              vero?
+            </p> -->
+            <section class="records" style="background: none;">
+           <div class="container">
+        <div class="wrap">
+          <div class="record-circle">
+            <img src="img/dompet.png">
+            <!-- <h5 class="sub-title">Projects</h5> -->
+          </div>
+          <h1 class="sub-title"><span style="font-weight:bold;">Harganya Murah</h1>
         </div>
+
+        <div class="wrap">
+          <div class="record-circle">
+          <img src="img/kartu.png">
+            <!-- <h4 class="sub-title">Happy Clients</h4> -->
+          </div>
+          <h1 class="sub-title"><span style="font-weight:bold;">Bayarnya Mudah</h1>
+        </div>
+
+        <div class="wrap">
+          <div class="record-circle">
+            <img src="img/waktu.png">
+            <!-- <h1 class="sub-title"><span style="font-weight:bold;">Pengerjaan Cepat</h1> -->
+          </div>
+          <h1 class="sub-title"><span style="font-weight:bold;">Pengerjaan Cepat</h1>
+        </div>
+
+        <div class="wrap">
+          <div class="record-circle">
+          <img src="img/mesin.png">
+            <!-- <h4 class="sub-title">Awards</h4> -->
+          </div>
+          <h1 class="sub-title"><span style="font-weight:bold;">Mesin Yang Handal</h1>
+        </div>
+      </div>
+    </section>
+          </div>
+
+          
+
+          <section class="about section" id="about">
+  <div class="container">
+    <div class="section-header">
+      <h3 class="title" data-title="Yuk Cek">Tentang Kami</h3>
     </div>
+    <!-- <div class="container-body grid-2">
+  <div class="column-1"> -->
+  <div style="text-align:center;">
+  <img src="./img/shapes/points4.png" class="points" alt="" />
+  <img src="./img/MyLaundry1.png" class="z-index" alt="" />
+    <p class="text">
+    MyLaundry adalah sebuah website yang menyediakan layanan laundry online dengan mesin cuci dan pengering terbaik serta bahan pembersih yang aman dan berkualitas. Website ini didesain khusus untuk melayani kebutuhan laundry dari pengguna yang tidak memiliki waktu atau kesempatan untuk mencuci pakaian sendiri. Pengguna bisa memilih layanan yang diinginkan mulai dari pencucian pakaian, pengeringan, hingga penyeterikaan. MyLaundry menawarkan harga yang terjangkau dan diskon yang menarik bagi pengguna yang sering menggunakan layanannya. Layanan laundry online ini sangat cocok bagi pengguna yang memiliki jadwal padat dan tidak sempat mencuci pakaian sendiri seperti pekerja kantoran, mahasiswa, atau ibu rumah tangga yang sibuk. Dengan MyLaundry, pengguna tidak perlu repot-repot mencuci pakaian sendiri dan bisa menghemat waktu serta tenaga.
+    </p>
+    <div style="text-align: center;">
+        <a href="registrasi.php" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">Daftar Sekarang</a>
+    </div>
+  </div>
 
-    <!-- footer -->
-    <?php include "footer.php" ?>
-    <!-- end footer -->
+  <!-- <div class="column-2 image">
+    <img src="./img/shapes/points4.png" class="points" alt="" />
+    <img src="./img/MyLaundry1.png" class="z-index" alt="" />
+  </div> -->
+</div>
+ </div>
+</section>
+    <!-- <section class="about section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="title" data-title="Who Am I">About me</h3>
+        </div>
 
+        <div class="container-body grid-2">
+          <div class="column-1">
+            <h3 class="title-sm">Hello, I'm</h3>
+            <p class="text">
+            MyLaundry adalah sebuah website yang menyediakan layanan laundry online untuk memudahkan pengguna dalam mencuci pakaian. Website ini didesain khusus untuk melayani kebutuhan laundry dari pengguna yang tidak memiliki waktu atau kesempatan untuk mencuci pakaian sendiri. Dengan MyLaundry, pengguna dapat memilih layanan yang diinginkan, mulai dari pencucian pakaian, pengeringan, hingga penyeterikaan.
+            </p>
+            <p class="text">
+            MyLaundry menjamin kualitas layanan yang tinggi dengan menggunakan mesin cuci dan pengering terbaik serta bahan pembersih yang aman dan berkualitas. Selain itu, website ini juga menawarkan harga yang terjangkau dan diskon yang menarik untuk pengguna yang sering menggunakan layanannya.
+            </p>
+            <p class="text">
+            Dengan MyLaundry, pengguna tidak perlu repot-repot mencuci pakaian sendiri dan bisa menghemat waktu serta tenaga. Layanan laundry online dari MyLaundry ini sangat cocok untuk pengguna yang memiliki jadwal yang padat dan tidak sempat mencuci pakaian sendiri, seperti pekerja kantoran, mahasiswa, atau ibu rumah tangga yang sibuk.
+            </p>
+
+          <div class="column-2 image">
+            <img src="./img/shapes/points4.png" class="points" alt="" />
+            <img src="./img/MyLaundry1.png" class="z-index" alt="" />
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    
+
+    <section class="blog section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="title" data-title="Last News">Hubungi Kami</h3>
+          <p class="text">
+            Jika anda memiliki pertanyaan seputar produk kami, silakan hubungi kami melalui kontak di bawah ini.
+          </p>
+        </div>
+
+        <div class="container">
+        <div class="contact-box">
+          <div class="contact-info">
+            <h3 class="title">Get in touch</h3>
+            <p class="text">
+              Outlet kami berada di lebih dari 1 daerah yang ada di Indonesia, namun hanya ada 1 kantor resmi kami.
+            </p>
+            <div class="information-wrap">
+              <div class="information">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <p class="info-text">Wing 20, Jl. Meranti Kampus IPB, Babakan, Kec. Dramaga, Kabupaten Bogor, Jawa Barat 16680</p>
+              </div>
+
+              <div class="information">
+                <div class="contact-icon">
+                  <i class="fas fa-paper-plane"></i>
+                </div>
+                <p class="info-text">hrd@mylaundry.com</p>
+              </div>
+
+              <div class="information">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <p class="info-text">123-456-789</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3 class="title">Contact me</h3>
+            <div class="row">
+              <input type="text" class="contact-input" placeholder="First Name" />
+              <input type="text" class="contact-input" placeholder="Last Name" />
+            </div>
+
+            <div class="row">
+              <input type="text" class="contact-input" placeholder="Phone" />
+              <input type="email" class="contact-input" placeholder="Email" />
+            </div>
+
+            <div class="row">
+              <textarea name="message" class="contact-input textarea" placeholder="Message"></textarea>
+            </div>
+            <a href="#" class="btn">Send</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="testimoni">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="title" data-title="APA YANG MEREKA KATAKAN">Testimoni</h3>
+        </div>
+
+        <div class="testi-content grid-2">
+          <div class="column-1 reviews">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide review">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+
+                  <p class="review-text">
+                    "Saya terkesan dengan kualitas layanan <span
+                      style="color:#356D65; font-weight:bold;">MyLaundry</span>. Mereka sangat ramah dan profesional
+                    dalam mengambil dan mengantar cucian saya. Pakaian saya selalu dicuci dengan hati-hati dan hasilnya
+                    sangat memuaskan. Saya pasti merekomendasikan <span
+                      style="color:#356D65; font-weight:bold;">MyLaundry</span> kepada teman dan keluarga."
+                  </p>
+
+                  <div class="review-info">
+                    <h3 class="review-name">Adolf Hitlaer</h3>
+                    <h5 class="review-job">Ketua Partai Nazi</h5>
+                  </div>
+                </div>
+
+                <div class="swiper-slide review">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+
+                  <p class="review-text">
+                    "Saya senang bisa mencuci baju di <span style="color:#356D65; font-weight:bold;">MyLaundry</span>,
+                    selain membuat baju saya bersih saya juga akhirnya bisa mengakusisi Twitter berkat mencuci di <span
+                      style="color:#356D65; font-weight:bold;">MyLaundry</span>."
+                  </p>
+
+                  <div class="review-info">
+                    <h3 class="review-name">Elon Musk</h3>
+                    <h5 class="review-job">CEO of Tesla</h5>
+                  </div>
+                </div>
+
+                <div class="swiper-slide review">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+
+                  <p class="review-text">
+                    "Saya sangat puas dengan layanan <span style="color:#356D65; font-weight:bold;">MyLaundry</span>.
+                    Cucian saya diambil dan diantar tepat waktu dengan hasil yang sangat bersih dan rapi. Harga yang
+                    ditawarkan juga sangat terjangkau. Saya pasti akan menggunakan jasa <span
+                      style="color:#356D65; font-weight:bold;">MyLaundry</span> lagi di masa depan."
+                  </p>
+
+                  <div class="review-info">
+                    <h3 class="review-name">Barrack Obama</h3>
+                    <h5 class="review-job">Mantan Presiden USA</h5>
+                  </div>
+                </div>
+
+                <div class="swiper-slide review">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+
+                  <p class="review-text">
+                    "<span style="color:#356D65; font-weight:bold;">MyLaundry</span> adalah penyelamat hidup saya! Saya
+                    tidak punya waktu untuk mencuci pakaian saya sendiri, tetapi <span
+                      style="color:#356D65; font-weight:bold;">MyLaundry</span> membuat segalanya menjadi jauh lebih
+                    mudah. Layanan mereka sangat cepat dan hasilnya selalu memuaskan. Saya pasti akan menggunakan
+                    layanan <span style="color:#356D65; font-weight:bold;">MyLaundry</span> lagi dan lagi. Tadinya jika
+                    saya tidak puas maka ownernya bakal saya kasih nuklir"
+                  </p>
+
+                  <div class="review-info">
+                    <h3 class="review-name">Kim Jong Un</h3>
+                    <h5 class="review-job">Supreme Leader of North Korea</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="review-nav swiper-button-prev">
+                <i class="fas fa-long-arrow-alt-left"></i>
+              </div>
+              <div class="review-nav swiper-button-next">
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="column-2 image">
+            <img src="./img/capybara.gif" alt="" class="img-element" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hireme" id="hireme">
+      <div class="container">
+        <h3 class="title">Let's talk about a project</h3>
+        <p class="text">
+        Projek MyLaundry merupakan sebuah proyek tugas akhir yang dibuat oleh mahasiswa Departemen Ilmu Komputer IPB University sebagai bagian dari mata kuliah "Rekayasa Perangkat Lunak" pada semester 4. Proyek ini bertujuan untuk mengembangkan sebuah aplikasi pencucian pakaian yang dapat membantu pengguna dalam mengelola cucian mereka dengan lebih mudah dan efisien.
+        </p>
+        <p class="text">
+        Projek MyLaundry diharapkan dapat memberikan solusi bagi pengguna yang kesulitan mengatur jadwal mencuci pakaian mereka. Selain itu, aplikasi ini juga diharapkan dapat membantu meningkatkan kualitas layanan laundry dengan cara mempermudah dan mempercepat proses pencucian. Melalui proyek ini, mahasiswa Departemen Ilmu Komputer IPB University diharapkan dapat mengembangkan kemampuan dalam merancang, mengembangkan, dan menguji sebuah perangkat lunak secara mandiri.        </p>
+        <a href="http://instagram.com/althaaf1601" class="btn">Hire me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="grid-4">
+        <div class="grid-4-col footer-about">
+          <h3 class="title-sm">About</h3>
+          <p class="text">
+          Projek MyLaundry merupakan sebuah proyek tugas akhir yang dibuat oleh Kelompok 9 Departemen Ilmu Komputer IPB University sebagai bagian dari mata kuliah "Rekayasa Perangkat Lunak" pada semester 4.
+          </p>
+        </div>
+
+        <div class="grid-4-col footer-links">
+          <h3 class="title-sm">Links</h3>
+          <ul>
+            <li>
+              <a href="#header">Home</a>
+            </li>
+            <li>
+              <a href="#services">Lokasi Kami</a>
+            </li>
+            <li>
+              <a href="#about">Tentang Kami</a>
+            </li>
+            <li>
+              <a href="#contact">Hubungi Kami</a>
+            </li>
+            <li>
+              <a href="#testimoni">Testimoni</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-4-col footer-links">
+          <h3 class="title-sm">Services</h3>
+          <ul>
+            <li>
+              <a href="#">Cuci</a>
+            </li>
+            <li>
+              <a href="#">Setrika</a>
+            </li>
+            <li>
+              <a href="#">Komplit</a>
+            </li>
+            <li>
+              <a href="#">Pembayaran Cash</a>
+            </li>
+            <li>
+              <a href="#">Cicilan 12x</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-4-col footer-newstletter">
+          <h3 class="title-sm">Subscribe</h3>
+          <p class="text">
+            Anda butuh info nyeleneh terkait kami?
+          </p>
+          <div class="footer-input-wrap">
+            <input type="email" class="footer-input" placeholder="Email" />
+            <a href="#" class="input-arrow">
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-footer">
+        <div class="copyright">
+          <p class="text">
+            Copyright&copy;2023 All rights reserved | Made by
+            <span>Kelompok 9 RPL</span>
+          </p>
+        </div>
+
+        <div class="followme-wrap">
+          <div class="followme">
+            <h3>Follow me</h3>
+            <span class="footer-line"></span>
+            <div class="social-media">
+              <a href="http://instagram.com/althaaf1601">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="http://instagram.com/althaaf1601">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="http://instagram.com/althaaf1601">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="http://instagram.com/althaaf1601">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="back-btn-wrap">
+            <a href="#" class="back-btn">
+              <i class="fas fa-chevron-up"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./js/isotope.pkgd.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="./js/app.js"></script>
 </body>
-    <script src="js/script.js"></script>
-    <script src="js/scriptAjax.js"></script>
+
 </html>
+
+

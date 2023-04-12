@@ -27,8 +27,8 @@ cekLogin();
         <!-- term -->
         <div class="col s4 offset-s1">
             <div class="card">
-                <div class="col center" style="margin:20px">
-                    <img src="img/banner.png" alt="laundryku" width=100%/><br><br>
+                <div class="col center" style="margin:50px">
+                    <img src="img/MyLaundry1.png" alt="MyLaundry" width=100%/><br><br>
                     <span class="card-title black-text">Syarat dan Ketentuan :</span>
                 </div>
                 <div class="card-content">

@@ -24,8 +24,8 @@ include 'connect-db.php';
     <div class="row">
         <div class="col s6 offset-s3">
             <div class="card">
-                <div class="col center" style="margin:20px">
-                    <img src="img/banner.png" alt="laundryku" width=100%/><br><br>
+                <div class="col center" style="margin:50px">
+                    <img src="img/MyLaundry1.png" alt="MyLaundry" width=100%/><br><br>
                     <span class="card-title black-text">Syarat dan Ketentuan :</span>
                 </div>
                 <div class="card-content">
@@ -42,7 +42,7 @@ include 'connect-db.php';
                     <p>11.	Status agen secara otomatis dicabut apabila melanggar kesepakatan yang telah ditetapkan dalam surat perjanjian kerjasama ataupun agen ingin mengundurkan diri</p>
                 </div>
                 <div class="card-action">
-                    <a href="index.php">HOME - LAUNDRYKU</a>
+                    <a href="index.php">HOME - MyLaundry</a>
                 </div>
             </div>
         </div>

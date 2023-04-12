@@ -1,7 +1,9 @@
-<nav class="blue darken2">
+<nav style="background-color:#356D65";>
     <div class="container">
         <div class="nav-wrapper">
-            <a id="logo-container" href="index.php" class="brand-logo"><i class="material-icons left large">home</i>MyLaundry</a>
+        <a href="index.php">
+            <img src="img/MyLaundry1.png" style="top: 0; left: 0; width: 130px; height: 60px;">
+        </a>
             <ul class="right hide-on-med-and-down">
                 <li> 
                 <?php
@@ -52,7 +54,7 @@
                         ";
                     }else {
                         echo "
-                            <a href='login.php'><b>Login</b></a>
+                        <a href='login.php'><b><b>Login</b></a>
                         ";
                     }
                 ?>                                      

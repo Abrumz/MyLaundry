@@ -1,5 +1,5 @@
 <br><br>
-<footer class="page-footer blue darken-2">
+<footer class="page-footer" style="background-image: url('gradasi-putih.png');">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">

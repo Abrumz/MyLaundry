@@ -7,7 +7,7 @@ session_destroy();
 
 echo "
     <script>
-        document.location.href = 'index.php';
+        document.location.href = 'index1.php';
     </script>
 ";
 

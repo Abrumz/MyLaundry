@@ -52,9 +52,6 @@ include 'connect-db.php';
                   <a href="#header">Home</a>
                 </li>
                 <li>
-                  <a href="#services">Lokasi Kami</a>
-                </li>
-                <li>
                   <a href="#about">Tentang Kami</a>
                 </li>
                 <li>
@@ -62,6 +59,9 @@ include 'connect-db.php';
                 </li>
                 <li>
                   <a href="#testimoni">Testimoni</a>
+                </li>
+                <li>
+                  <a href="term.php">Syarat dan Ketentuan</a>
                 </li>
                 <li>
                 <a href="login.php" class="active" style="background-color:#356D65;">Login</a>
@@ -89,8 +89,8 @@ include 'connect-db.php';
                 atau beraktivitas di luar rumah tanpa khawatir cucian menumpuk di
                 rumah, kos atau di kontrakan.
               </p>
-              <a href="#" class="btn" style="background-color:transparent; color:#356D65; border: solid 1px #356D65;">Cek Outlet</a>
-              <a href="login.php" class="btn" style="background-color:#356D65;">Booking Now!!</a>
+              <a href="index1.php" class="btn" style="background-color:transparent; color:#356D65; border: solid 1px #356D65;">Cek Outlet</a>
+              <a href="index1.php" class="btn" style="background-color:#356D65;">Booking Now!!</a>
             </div>
 
           </div>
@@ -409,9 +409,6 @@ include 'connect-db.php';
               <a href="#header">Home</a>
             </li>
             <li>
-              <a href="#services">Lokasi Kami</a>
-            </li>
-            <li>
               <a href="#about">Tentang Kami</a>
             </li>
             <li>
@@ -419,6 +416,9 @@ include 'connect-db.php';
             </li>
             <li>
               <a href="#testimoni">Testimoni</a>
+              <li>
+              <a href="term.php">Syarat dan Ketentuan</a>
+            </li>
             </li>
           </ul>
         </div>

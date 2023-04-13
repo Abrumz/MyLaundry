@@ -1,5 +1,8 @@
 <br><br>
-<footer class="page-footer" style="background-image: url('gradasi-putih.png');">
+<footer class="page-footer" style="background-image: url('gradasi-putih.png'); position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">

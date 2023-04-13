@@ -142,7 +142,7 @@ if ( isset($_POST["submit"]) ){
         echo "
             <script>
                 Swal.fire('Pendaftaran Berhasil','Data Harga Berhasil Ditambahkan','success').then(function(){
-                    window.location = 'index.php';
+                    window.location = 'index1.php';
                 });
             </script>
         ";

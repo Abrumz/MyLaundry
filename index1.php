@@ -71,17 +71,17 @@ if (isset($_POST["submitSorting"])){
     <title>MyLaundry</title>
     <?php include 'headtags.html' ?>
 </head>
-<body class="background.css">
+<body class="background.css" >
 
     <?php include 'header.php'; ?>
 
-        <div class="container">
+        <!-- <div class="container">
             <br>
            <h1 class="header center orange-text"><img src="img/MyLaundry1.png" width=100% alt=""></h1>
             <div class="row center">
                 <h5 class="header col s12 light">Ada Baju Kotor dan Anda Malas?</h5>
                 <h5 class="header col s12 light">Tenang ada MyLaundry</h5>
-            </div>
+            </div> -->
 
             <!-- menu -->
             <div class="row center">

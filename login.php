@@ -85,7 +85,7 @@ if ( isset($_POST["login"]) ){
 
                 echo "
                     <script>
-                        document.location.href = 'index.php';
+                        document.location.href = 'index1.php';
                     </script>
                 ";
                 exit;
@@ -126,7 +126,7 @@ if ( isset($_POST["login"]) ){
 
                 echo "
                     <script>
-                        document.location.href = 'index.php';
+                        document.location.href = 'index1.php';
                     </script>
                 ";
                 
@@ -168,7 +168,7 @@ if ( isset($_POST["login"]) ){
 
                 echo "
                     <script>
-                        document.location.href = 'index.php';
+                        document.location.href = 'index1.php';
                     </script>
                 ";
                 
@@ -196,3 +196,5 @@ if ( isset($_POST["login"]) ){
 }
 
 ?>
+
+

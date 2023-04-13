@@ -17,6 +17,7 @@ cekLogin();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "headtags.html"; ?>
     <title>Registrasi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>

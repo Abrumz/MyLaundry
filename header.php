@@ -1,4 +1,4 @@
-<nav style="background-color:#356D65";>
+<nav style="background-color:#f7ecdf";>
     <div class="container">
         <div class="nav-wrapper">
         <a href="index1.php">
@@ -19,9 +19,8 @@
                         // mengambil data nama dari array
                         $nama = $data["nama"];
 
-                        echo "
-                            <a href='pelanggan.php'><b>$nama</b> (Pelanggan)</a>
-                        ";
+                        echo "<a href='pelanggan.php' style='color:#356D65;'><b>$nama</b> (Pelanggan)</a>";
+
                     }else if ( isset($_SESSION["login-agen"]) && isset($_SESSION["agen"])){
                         // mengambil email dari session
                         $id_agen = $_SESSION["agen"];
@@ -32,31 +31,25 @@
                         // mengambil data nama dari array
                         $nama = $data["nama_laundry"];
 
-                        echo "
-                            <a href='agen.php'><b>$nama</b> (Agen)</a>
-                        ";
+                        echo "<a href='agen.php' style='color:#356D65;'><b>$nama</b> (Agen)</a>";
+
                     }else if ( isset($_SESSION["login-admin"]) && isset($_SESSION["admin"])){
-                        echo "
-                            <a href='admin.php'><span><b>Admin</b> (Admin)</a>
-                        ";
-                    }else {
-                        echo "
-                            <a href='registrasi.php'><b>Registrasi</b></a>
-                        ";
-                    }
+                        echo 
+                            "<a href='admin.php' style='color:#356D65;'><b><b>Admin</b></a>";
+                        }else {
+                            echo 
+                            "<a href='registrasi.php' style='color:#356D65;'><b><b>Registrasi</b></a>";
+                        }
                 ?>
                 </li>
                 <li>
                 <?php
                     if ( isset($_SESSION["login-pelanggan"]) && isset($_SESSION["pelanggan"]) || isset($_SESSION["login-agen"]) && isset($_SESSION["agen"]) || isset($_SESSION["login-admin"]) && isset($_SESSION["admin"]) ){
-                        echo "
-                            <a href='logout.php'><b>Logout</b></a>
-                        ";
+                        echo 
+                        "<a href='logout.php' style='color:#356D65;'><b><b>Logout</b></a>";
                     }else {
-                        echo "
-                        <a href='login.php'><b><b>Login</b></a>
-                        ";
-                    }
+                        echo "<a href='login.php' style='color:#356D65;'><b><b>Login</b></a>";
+                    }                    
                 ?>                                      
                 </li>
             </ul>
@@ -65,13 +58,10 @@
                 <li>
                     <?php
                         if ( isset($_SESSION["login-pelanggan"]) && isset($_SESSION["pelanggan"]) || isset($_SESSION["login-agen"]) && isset($_SESSION["agen"]) || isset($_SESSION["login-admin"]) && isset($_SESSION["admin"]) ){
-                            echo "
-                                <a href='logout.php'><b>Logout</b></a>
-                            ";
+                            echo 
+                            "<a href='logout.php' style='color:#356D65;'><b><b>Logout</b></a>";
                         }else {
-                            echo "
-                                <a href='login.php'><b>Login</b></a>
-                            ";
+                            echo "<a href='login.php' style='color:#356D65;'><b><b>Login</b></a>";
                         }
                     ?>                                      
                 </li>
@@ -89,9 +79,8 @@
                             // mengambil data nama dari array
                             $nama = $data["nama"];
 
-                            echo "
-                                <a href='pelanggan.php'><b>$nama</b> (Pelanggan)</a>
-                            ";
+                            echo "<a href='pelanggan.php' style='color:#356D65;'><b>$nama</b> (Pelanggan)</a>";
+
                         }else if ( isset($_SESSION["login-agen"]) && isset($_SESSION["agen"])){
                             // mengambil email dari session
                             $id_agen = $_SESSION["agen"];
@@ -102,17 +91,14 @@
                             // mengambil data nama dari array
                             $nama = $data["nama_laundry"];
 
-                            echo "
-                                <a href='agen.php'><b>$nama</b> (Agen)</a>
-                            ";
+                            echo "<a href='agen.php' style='color:#356D65;'><b>$nama</b> (Agen)</a>";
+
                         }else if ( isset($_SESSION["login-admin"]) && isset($_SESSION["admin"])){
-                            echo "
-                                <a href='admin.php'><b>Admin</b> (Admin)</a>
-                            ";
+                            echo 
+                            "<a href='admin.php' style='color:#356D65;'><b><b>Admin</b></a>";
                         }else {
-                            echo "
-                                <a href='registrasi.php'><b>Registrasi</b></a>
-                            ";
+                            echo 
+                            "<a href='registrasi.php' style='color:#356D65;'><b><b>Registrasi</b></a>";
                         }
                     ?>
                 </li>

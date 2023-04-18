@@ -19,7 +19,8 @@ include 'connect-db.php';
   <!-- <include headtags.html> -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
-  
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
 </head>
 
 <body>
@@ -96,7 +97,7 @@ include 'connect-db.php';
           </div>
         </div>
     <!-- <section class="services section" id="services"> -->
-        <div class="container">
+        <div class="container" data-aos="zoom-in">
           <div class="section-header">
             <h3 class="title" data-title="Yuk Cek">Apa Sih Kelebihan Kami</h3>
             <!-- <p class="text">
@@ -104,8 +105,8 @@ include 'connect-db.php';
               vero?
             </p> -->
             <section class="records" style="background: none;">
-           <div class="container">
-        <div class="wrap">
+           <div class="container" >
+        <div class="wrap" data-aos="fade-up-right">
           <div class="record-circle">
             <img src="img/dompet.png">
             <!-- <h5 class="sub-title">Projects</h5> -->
@@ -113,7 +114,7 @@ include 'connect-db.php';
           <h1 class="sub-title"><span style="font-weight:bold;">Harganya Murah</h1>
         </div>
 
-        <div class="wrap">
+        <div class="wrap" data-aos="fade-up">
           <div class="record-circle">
           <img src="img/kartu.png">
             <!-- <h4 class="sub-title">Happy Clients</h4> -->
@@ -121,7 +122,7 @@ include 'connect-db.php';
           <h1 class="sub-title"><span style="font-weight:bold;">Bayarnya Mudah</h1>
         </div>
 
-        <div class="wrap">
+        <div class="wrap" data-aos="fade-up">
           <div class="record-circle">
             <img src="img/waktu.png">
             <!-- <h1 class="sub-title"><span style="font-weight:bold;">Pengerjaan Cepat</h1> -->
@@ -129,7 +130,7 @@ include 'connect-db.php';
           <h1 class="sub-title"><span style="font-weight:bold;">Pengerjaan Cepat</h1>
         </div>
 
-        <div class="wrap">
+        <div class="wrap" data-aos="fade-up-left">
           <div class="record-circle">
           <img src="img/mesin.png">
             <!-- <h4 class="sub-title">Awards</h4> -->
@@ -143,7 +144,7 @@ include 'connect-db.php';
           
 
           <section class="about section" id="about">
-  <div class="container">
+  <div class="container"data-aos="fade-up">
     <div class="section-header">
       <h3 class="title" data-title="Yuk Cek">Tentang Kami</h3>
     </div>
@@ -197,7 +198,7 @@ include 'connect-db.php';
     
 
     <section class="blog section" id="contact">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h3 class="title" data-title="Last News">Hubungi Kami</h3>
           <p class="text">
@@ -205,7 +206,7 @@ include 'connect-db.php';
           </p>
         </div>
 
-        <div class="container">
+        <div class="container" data-aos="fade-up">
         <div class="contact-box">
           <div class="contact-info">
             <h3 class="title">Get in touch</h3>
@@ -259,12 +260,12 @@ include 'connect-db.php';
     </section>
 
     <section class="testimonials section" id="testimoni">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h3 class="title" data-title="APA YANG MEREKA KATAKAN">Testimoni</h3>
         </div>
 
-        <div class="testi-content grid-2">
+        <div class="testi-content grid-2" data-aos="fade-up">
           <div class="column-1 reviews">
             <div class="swiper-container">
               <div class="swiper-wrapper">
@@ -380,7 +381,7 @@ include 'connect-db.php';
     </section>
 
     <section class="hireme" id="hireme">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <h3 class="title">Let's talk about a project</h3>
         <p class="text">
         Projek MyLaundry merupakan sebuah proyek tugas akhir yang dibuat oleh mahasiswa Departemen Ilmu Komputer IPB University sebagai bagian dari mata kuliah "Rekayasa Perangkat Lunak" pada semester 4. Proyek ini bertujuan untuk mengembangkan sebuah aplikasi pencucian pakaian yang dapat membantu pengguna dalam mengelola cucian mereka dengan lebih mudah dan efisien.
@@ -500,6 +501,10 @@ include 'connect-db.php';
   <script src="./js/isotope.pkgd.min.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="./js/app.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>

@@ -16,6 +16,8 @@ cekLogin();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "headtags.html"; ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./css/style2.css">
     <title>MyLaundry</title>
     <style>
         *{
@@ -28,12 +30,13 @@ cekLogin();
             color: #fff;
         }
         section{
-            background: url("./img/bg.png");
+            background: url("./img/bg.png"), url("../coba/index.html");
             height: 100vh;
             width: 100%;
             background-size: cover;
             background-position: center center;
         }
+
         .form-container {
             position: absolute;
             top: 50%;
@@ -141,37 +144,46 @@ cekLogin();
 </head>
 
 <body>
-    <section>
-        <div class="form-container">
-            <h1>Login Form</h1>
-            <form action="" method="post">
-            <div class="input-field inline">
-                <ul>
+<section>
+    
+    <div class='canvas'>
+    <?php
+        for ($i = 0; $i < 50; $i++) {
+            echo "<div class='bubble'></div>";
+        }
+    ?>
+    </div>
+    <div class="form-container">
+        <h1>Login Form</h1>
+        <form action="" method="post">
+        <div class="input-field inline">
+            <ul>
+            <li>
+                    <label><input name="akun" value="admin" type="radio"/><span>Admin</span> </label>
+                    <label><input name="akun" value="agen" type="radio"/><span>Agen</span> </label>
+                    <label><input name="akun" value="pelanggan" type="radio"/><span>Pelanggan</span></label>
+                </li>
                 <li>
-                        <label><input name="akun" value="admin" type="radio"/><span>Admin</span> </label>
-                        <label><input name="akun" value="agen" type="radio"/><span>Agen</span> </label>
-                        <label><input name="akun" value="pelanggan" type="radio"/><span>Pelanggan</span></label>
-                    </li>
-                    <li>
-                        <input type="text" id="email" name="email" placeholder="Email">
-                    </li>
-                    <li>
-                        <input type="password" id="password" name="password" placeholder="Password">
-                        <p class="tes"></p>
-                    </li>
+                    <input type="text" id="email" name="email" placeholder="Email">
+                </li>
+                <li>
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <p class="tes"></p>
+                </li>
 
-                    <br>
-                    <li>
-                        <div class="center">
-                            <button class="waves-effect blue darken-2 btn" type="submit" name="login">Login</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </form>
-            <p><a href="registrasi.php">New Member?</a></p>
+                <br>
+                <li>
+                    <div class="center">
+                        <button class="waves-effect blue darken-2 btn" type="submit" name="login">Login</button>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </section>
+    </form>
+        <p><a href="registrasi.php">New Member?</a></p>
+    </div>
+</section>
+
 </body>
 
 

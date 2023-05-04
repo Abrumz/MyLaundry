@@ -508,5 +508,3 @@ include 'connect-db.php';
 </body>
 
 </html>
-
-

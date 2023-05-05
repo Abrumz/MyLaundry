@@ -16,6 +16,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "headtags.html"; ?>
     <title>Registrasi Pelanggan</title>
+    <style>
+        .img-fluid {
+            border-radius: 20px;
+            filter: blur(2px);
+            opacity: 0.8;
+        }
+        img {
+            max-width: 500px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            /* display: block; */
+        }
+        .col-md-6 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -27,7 +46,12 @@
 
     <!-- body -->
     <div class="row">
-        <div class="col s6 offset-s3">
+    <div class="col s4 offset-s1">
+            <div class="col-md-6">
+          <img src="img/mesin1.jpg" alt="Image" class="img-fluid">
+        </div>
+        </div>
+        <div class="col s4 offset-s1">
             <form action="" method="POST">
                 <div class="input-field inline">
                     <ul>
@@ -67,13 +91,16 @@
                     </ul>
                 </div>
             </form>
-            <div class="center">
-                Ingin menjadi mitra kami ?<br/>
-                Dafar sebagai agen sekarang !<br/>
-                <br>
-                <a class="btn-large red darken-2" href="registrasi-agen.php">Registrasi Sebagai Agen</a>
-            </div>
         </div>
+            
+<div class="row center">
+    <div class="col s12">
+        Ingin menjadi mitra kami ?<br/>
+        Daftar sebagai agen sekarang !<br/>
+        <br>
+        <a class="btn-large red darken-2" href="registrasi-agen.php">Registrasi Sebagai Agen</a>
+    </div>
+</div>
     </div>
     <!-- end body -->
 

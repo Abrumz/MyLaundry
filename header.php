@@ -1,7 +1,7 @@
 <nav style="background-color:#f7ecdf";>
     <div class="container">
         <div class="nav-wrapper">
-        <a href="index1.php">
+        <a href="index.php">
             <img src="img/MyLaundry1.png" style="top: 0; left: 0; width: 130px; height: 60px;">
         </a>
             <ul class="right hide-on-med-and-down">

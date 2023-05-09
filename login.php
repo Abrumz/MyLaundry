@@ -16,143 +16,22 @@ cekLogin();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "headtags.html"; ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.cs">
   <link rel="stylesheet" href="./css/style2.css">
     <title>MyLaundry</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            font-family: "Open Sans";
-            color: #fff;
-        }
-        section{
-            background: url("./img/bg.png"), url("../coba/index.html");
-            height: 100vh;
-            width: 100%;
-            background-size: cover;
-            background-position: center center;
-        }
-
-        .form-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 380px;
-            padding: 50px 30px;
-            border-radius: 10px;
-            background-color: rgba(53, 109, 101, 0.9);
-            backdrop-filter: blur(5px);
-        }
-
-
-        h1{
-            color: #ffffff;
-            font-size: 2em;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .control input{
-            padding: 10px;
-            font-size: 16px;
-            display: block;
-            width: 100%;
-            color:#000;
-            background: #ddd;
-            outline: none;
-            border: none;
-            margin: 1em 0;
-
-        }         
-        .control .btn{
-            color: #fff;
-            text-transform: uppercase;
-            background: crimson;
-            opacity: .7;
-            transition:opacity .3s ease;
-        }
-        .btn:focus{
-            opacity: 1;
-        }
-        p{
-            text-align: center;
-        }
-        a{
-            text-decoration: none;
-            color: #fff;
-            opacity: .7;
-        }
-        a:hover{
-            opacity: 1;
-        }
-
-        li {
-            text-align: center;
-        }
-
-        .center {
-            display: flex;
-            justify-content: center;
-        }
-
-        button {
-            margin-top: 10px;
-        }
-
-        form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        }
-
-        ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        }
-
-        li label span {
-            color: white;
-        }
-        input[type="text"], input[type="password"] {
-            color: white;
-        }
-        .input-field label, .input-field input, .input-field select, .input-field textarea {
-            font-size: 1.2rem;
-        }
-
-        .button {
-            font-size: 1.2rem;
-        }
-        li label span {
-        font-size: 2rem;
-        }
-
-        li input[type="text"],
-        li input[type="password"] {
-        font-size: 2rem;
-        }
-
-
-    </style>
+     
 </head>
 </head>
 
 <body>
 <section>
-    
     <div class='canvas'>
-    <?php
-        for ($i = 0; $i < 50; $i++) {
-            echo "<div class='bubble'></div>";
-        }
-    ?>
-    </div>
+        <?php
+            for ($i = 0; $i < 50; $i++) {
+                echo "<div class='bubble'></div>";
+            }
+        ?>
+        </div>
     <div class="form-container">
         <h1>Login Form</h1>
         <form action="" method="post">
@@ -182,6 +61,7 @@ cekLogin();
     </form>
         <p><a href="registrasi.php">New Member?</a></p>
     </div>
+    
 </section>
 
 </body>

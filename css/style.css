@@ -42,6 +42,11 @@ img {
   width: 100%;
 }
 
+.about .text {
+  margin-top: 1rem;
+  margin-bottom: 30px;
+}
+
 .container {
   position: relative;
   z-index: 5;
@@ -206,7 +211,7 @@ img {
 }
 
 .btn:hover {
-  background-color: #6b44e0;
+  background-color: black;
 }
 
 .btn.small {
@@ -274,7 +279,7 @@ nav .container {
 
 .links a.active:hover {
   color: var(--light-one);
-  background-color: #6b44e0;
+  background-color: black;
 }
 
 .hamburger-menu {
@@ -1278,7 +1283,7 @@ header .circle {
 }
 
 .input-arrow:hover {
-  background-color: #6b44e0;
+  background-color: black;
 }
 
 .focus {
@@ -1361,7 +1366,7 @@ header .circle {
 }
 
 .back-btn:hover {
-  background-color: #6b44e0;
+  background-color: black;
 }
 
 .back-btn-wrap:before {

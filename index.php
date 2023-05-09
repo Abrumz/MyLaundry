@@ -43,7 +43,7 @@ include 'connect-db.php';
         <nav>
           <div class="container">
             <div class="logo">
-            <a href="index.php"><img src="img/MyLaundry1.png" style="top: 0; left: 0; width: 130px; height: 60px;">
+            <a href="index.php"><img src="img/MyLaundry1.png" style="top: 0; left: 0; width: 150px; height: 60px;">
                 </a>
             </div>
 
@@ -153,11 +153,11 @@ include 'connect-db.php';
   <div style="text-align:center;">
   <img src="./img/shapes/points4.png" class="points" alt="" />
   <img src="./img/MyLaundry1.png" class="z-index" alt="" />
-    <p class="text">
+    <p class="text" style="text-align: justify">
     MyLaundry adalah sebuah website yang menyediakan layanan laundry online dengan mesin cuci dan pengering terbaik serta bahan pembersih yang aman dan berkualitas. Website ini didesain khusus untuk melayani kebutuhan laundry dari pengguna yang tidak memiliki waktu atau kesempatan untuk mencuci pakaian sendiri. Pengguna bisa memilih layanan yang diinginkan mulai dari pencucian pakaian, pengeringan, hingga penyeterikaan. MyLaundry menawarkan harga yang terjangkau dan diskon yang menarik bagi pengguna yang sering menggunakan layanannya. Layanan laundry online ini sangat cocok bagi pengguna yang memiliki jadwal padat dan tidak sempat mencuci pakaian sendiri seperti pekerja kantoran, mahasiswa, atau ibu rumah tangga yang sibuk. Dengan MyLaundry, pengguna tidak perlu repot-repot mencuci pakaian sendiri dan bisa menghemat waktu serta tenaga.
     </p>
     <div style="text-align: center;">
-        <a href="registrasi.php" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">Daftar Sekarang</a>
+        <a href="registrasi.php" style="background-color: #356D65; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">Daftar Sekarang</a>
     </div>
   </div>
 

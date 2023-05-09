@@ -3,7 +3,7 @@
 :root {
   --dark-one: #333;
   --dark-two: #7a7a7a;
-  --main-color: #784cfb;
+  --main-color: #356D65;
   --light-one: #fff;
   --light-two: #f9fafb;
   --light-three: #f6f7fb;
@@ -342,8 +342,8 @@ nav.open .links {
 }
 
 .header-title {
-  font-size: 3.8rem;
-  line-height: 0.8;
+  font-size: 3.2rem;
+  line-height: 1.2;
   color: var(--dark-one);
 }
 

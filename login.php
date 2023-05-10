@@ -19,8 +19,7 @@ cekLogin();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.cs">
   <link rel="stylesheet" href="./css/style2.css">
     <title>MyLaundry</title>
-     
-</head>
+    </head>
 </head>
 
 <body>
@@ -33,7 +32,15 @@ cekLogin();
         ?>
         </div>
     <div class="form-container">
-        <h1>Login Form</h1>
+    <div class="logo">
+            <a href="index.php">
+            <img src="img/MyLaundry1.png" alt="" style="width: 170px; height: 60px;">
+            </a>
+        </div>
+    <div class="upper-login">
+
+
+        <h2>Login</h2>
         <form action="" method="post">
         <div class="input-field inline">
             <ul>
@@ -59,7 +66,7 @@ cekLogin();
             </ul>
         </div>
     </form>
-        <p><a href="registrasi.php">New Member?</a></p>
+        <p>Don't have an account?<a href="registrasi.php"> Get Started</a></p>
     </div>
     
 </section>

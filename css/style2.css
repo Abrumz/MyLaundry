@@ -1715,45 +1715,57 @@
   }
 }
 
+.blue.darken-2 {
+  background-color: #356D65 !important;
+  text-transform: SentenceCase;
+  font-weight: 500;
+}
+
+[type="radio"]:checked+span:after {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+  background-color: #356D65;
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-body{
-  font-family: "Poppins";
+  }
+  body{
   color: #fff;
-}
-section{
+  }
+  section{
   background-color: #f7ecdf;
   height: 100vh;
   width: 100%;
   background-size: cover;
   background-position: center center;
-}
+  }
 
-.form-container {
+  .form-container {
   position: absolute;
   top: 0%;
   left: 0%;
   /* transform: translate(-50%, -50%); */
   width: 650px;
-  padding: 202px 30px;
+  padding: 184px 30px;
   /* border-radius: 10px; */
-  background-color: rgba(53, 109, 101);
+  background-color: white;
   backdrop-filter: blur(5px);
-}
+  }
 
-h1{
-  color: #ffffff;
-  font-size: 2em;
-  font-family: "Poppins";
-  text-transform: uppercase;
-  font-weight: 750;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.control input{
+  h2{
+  color: #356D65;
+  font-size: 2.5em;
+  font-family: 'Poppins', sans-serif;
+  text-transform: SentenceCase;
+  font-weight: 950;
+  text-align: left;
+  margin-left: 10rem;
+  margin-bottom: 1rem;
+  }
+  .control input{
   padding: 10px;
   font-size: 16px;
   display: block;
@@ -1764,75 +1776,122 @@ h1{
   border: none;
   margin: 1em 0;
 
-}         
-.control .btn{
+  }         
+  .control .btn{
   color: #fff;
   text-transform: uppercase;
   background: crimson;
   opacity: .7;
   transition:opacity .3s ease;
-}
-.btn:focus{
+  }
+  .btn:focus{
   opacity: 1;
-}
-p{
-  text-align: center;
-}
-a{
+  }
+
+  p{
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10.9rem;
+  }
+
+  a{
   text-decoration: none;
-  color: #fff;
-  opacity: .7;
-}
-a:hover{
+  font-family: 'Poppins', sans-serif;
+  color: #356D65;
   opacity: 1;
-}
+  }
 
-li {
+  a:hover{
+  opacity: 1;
+  }
+
+  li {
   text-align: center;
-  font-family: "Poppins";
-}
+  }
 
-.center {
+  .center {
   display: flex;
   justify-content: center;
-}
+  }
 
-button {
+  /* button {
   margin-top: 10px;
-}
+  } */
 
-form {
-display: flex;
-justify-content: center;
-align-items: center;
-}
+  form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
 
-ul {
-list-style-type: none;
-padding: 0;
-margin: 0;
-}
+  ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  }
 
-li label span {
-  color: white;
-  font-family: "Poppins";
-}
-input[type="text"], input[type="password"] {
-  color: white;
-}
-.input-field label, .input-field input, .input-field select, .input-field textarea {
+  li label span {
+  color: #356D65;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 250;
+  }
+  input[type="text"], input[type="password"] {
+  color: #356D65;
+  }
+  .input-field label, .input-field input, .input-field select, .input-field textarea {
   font-size: 1.2rem;
-}
+  }
 
-.button {
+  .button {
   font-size: 1.2rem;
-}
-li label span {
-font-size: 2rem;
+  color: #AAA713;
+  }
+  li label span {
+  font-size: 2rem;
+  font-weight: 500;
+  }
+
+  li input[type="text"],
+  li input[type="password"] {
+  font-size: 2rem;
+  }
+
+  .input-field.inline input, .input-field.inline .select-dropdown {
+  margin-bottom: -0.25rem;
+  width: 100%;
+  border: 2px solid #356D65;
+  background-color: none;
+  border-radius: 6px;
+  padding: 0.25rem 1rem;
+  display: grid;
+  margin-top: 1rem;
+  margin-left: -1rem;
+  }
+  
+  .logo {
+  position: absolute;
+  margin-top: -25%;
+  }
+
+  .swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #356D65;
+    color: #fff;
+    font-size: 1em;
 }
 
-li input[type="text"],
-li input[type="password"] {
-font-size: 2rem;
-}
-
+  .btn, .btn-large, .btn-small {
+    text-decoration: none;
+    color: #fff;
+    background-color: #356D65;
+    border-radius: 6px;
+    padding: 25px 50px;
+    display: grid;
+    cursor: pointer;
+    margin-left: -55%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }

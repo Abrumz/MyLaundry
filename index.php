@@ -1,10 +1,6 @@
 <?php
-
 session_start();
 include 'connect-db.php';
-
-
-
 ?>
 
 <!DOCTYPE html>

@@ -17,7 +17,7 @@ cekLogin();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "headtags.html"; ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.cs">
-  <link rel="stylesheet" href="./css/style2.css">
+  <link rel="stylesheet" href="./css/login-page.css">
     <title>MyLaundry</title>
     </head>
 </head>
@@ -37,9 +37,9 @@ cekLogin();
             <img src="img/MyLaundry1.png" alt="" style="width: 170px; height: 60px;">
             </a>
         </div>
-    <div class="upper-login">
-
-
+    <div class="greetings">
+            <h1>Welcome back to MyLaundry</h1>
+        </div>
         <h2>Login</h2>
         <form action="" method="post">
         <div class="input-field inline">
@@ -66,7 +66,7 @@ cekLogin();
             </ul>
         </div>
     </form>
-        <p>Don't have an account?<a href="registrasi.php"> Get Started</a></p>
+        <p>Don't have an account?<a href="registrasi-page.php"> Get Started</a></p>
     </div>
     
 </section>

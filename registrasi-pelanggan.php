@@ -182,7 +182,7 @@ if ( isset($_POST["registrasi"]) ){
         echo "
             <script>
                 Swal.fire('Pendaftaran Berhasil','Selamat Bergabung Dengan LaundryKu','success').then(function() {
-                    window.location = 'index.php';
+                    window.location = 'index1.php';
                 });
             </script>
         ";

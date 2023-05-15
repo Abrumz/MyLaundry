@@ -5,6 +5,9 @@
             <img src="img/MyLaundry1.png" style="top: 0; left: 0; width: 170px; height: 60px;">
         </a>
             <ul class="right hide-on-med-and-down">
+                <li>
+                <a href="index1.php" style="color:#356D65;"><b>Home</b></a>
+                </li>
                 <li> 
                 <?php
                     global $connect;
@@ -38,7 +41,7 @@
                             "<a href='admin.php' style='color:#356D65;'><b><b>Admin</b></a>";
                         }else {
                             echo 
-                            "<a href='registrasi.php' style='color:#356D65;'><b><b>Registrasi</b></a>";
+                            "<a href='registrasi-page.php' style='color:#356D65;'><b><b>Registrasi</b></a>";
                         }
                 ?>
                 </li>
@@ -56,6 +59,7 @@
 
             <ul id="nav-mobile" class="sidenav">
                 <li>
+                    <a href="index1.php" style="color:#356D65;"><b>Home</b></a>
                     <?php
                         if ( isset($_SESSION["login-pelanggan"]) && isset($_SESSION["pelanggan"]) || isset($_SESSION["login-agen"]) && isset($_SESSION["agen"]) || isset($_SESSION["login-admin"]) && isset($_SESSION["admin"]) ){
                             echo 

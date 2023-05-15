@@ -2205,4 +2205,15 @@ header .circle {
   }
 }
 
+.nav-title h1 {
+  font-size: 1.5rem;
+  font-weight: 750;
+  color: var(--main-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: absolute;
+  left: 45%;
+  top: 32%;
+}
+
 /* End Responsive */

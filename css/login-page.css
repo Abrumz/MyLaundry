@@ -1681,7 +1681,7 @@
   }
 }
 
-.bubble:nth-child(50) {
+/* .bubble:nth-child(50) {
   background: radial-gradient(ellipse at top right, #b8c6c6 0%, #30b3d3 46%, #20628c 100%);
   width: 99px;
   height: 99px;
@@ -1689,7 +1689,19 @@
   bottom: 96vh;
   -webkit-animation: move50 infinite 8s;
   animation: move50 infinite 8s;
+} */
+
+.bubble:nth-child(50) {
+  background: url(img/surya.png) no-repeat center center;
+  background-size: cover;
+  width: 99px;
+  height: 99px;
+  left: 62vw;
+  bottom: 96vh;
+  -webkit-animation: move50 infinite 8s;
+  animation: move50 infinite 8s;
 }
+
 
 @-webkit-keyframes move50 {
   0% {

@@ -24,13 +24,15 @@ cekLogin();
 
 <body>
 <section>
-    <div class='canvas'>
-        <?php
-            for ($i = 0; $i < 50; $i++) {
-                echo "<div class='bubble'></div>";
-            }
-        ?>
-        </div>
+    
+        <div class='canvas'>
+    <?php
+        for ($i = 0; $i < 50; $i++) {
+            echo "<img class='bubble' src='img/surya.png'>";
+        }
+    ?>
+</div>
+
     <div class="form-container">
     <div class="logo">
             <a href="index.php">

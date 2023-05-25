@@ -28,7 +28,7 @@ cekLogin();
         <div class='canvas'>
     <?php
         for ($i = 0; $i < 50; $i++) {
-            echo "<img class='bubble' src='img/surya.png'>";
+            echo "<img class='bubble'>";
         }
     ?>
 </div>

@@ -1,0 +1,25 @@
+:root {
+    --dark-one: #333;
+    --dark-two: #7a7a7a;
+    --main-color: #356D65;
+    --light-one: #fff;
+    --light-two: #f9fafb;
+    --light-three: #f6f7fb;
+  }
+
+.btn-large.waves-effect.waves-light.blue.darken-3 {
+    background-color: var(--main-color) !important;
+  }
+
+.waves-effect.blue.darken-1 {
+    background-color: var(--main-color) !important;
+}
+
+li.disable-effect.blue.darken-1 {
+    background-color: var(--main-color) !important;
+}
+
+.blue.darken-1 {
+    background-color: #356d65 !important;
+}
+

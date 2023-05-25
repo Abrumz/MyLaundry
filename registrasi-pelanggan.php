@@ -23,7 +23,7 @@
             opacity: 0.8;
         }
         img {
-            max-width: 500px;
+            max-width: 450px;
             height: auto;
             margin-left: auto;
             margin-right: auto;
@@ -33,6 +33,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .header.light.center {
+            margin-top: 25px;
+            margin-bottom: 45px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 550;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+
+        .btn-large.blue.darken-3 {
+            background-color: #356D65;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>

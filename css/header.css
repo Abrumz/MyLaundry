@@ -1,0 +1,58 @@
+:root {
+    --dark-one: #333;
+    --dark-two: #7a7a7a;
+    --main-color: #356D65;
+    --light-one: #fff;
+    --light-two: #f9fafb;
+    --light-three: #f6f7fb;
+  }
+
+.button {
+    display: inline-block;
+    padding: 0.9rem 1.2rem;
+    color: var(--dark-one);
+    font-size: 1.05rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+    transition: 0.3s;
+    background-color: var(--main-color);
+    color: var(--light-one);
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding: 0.9rem 2.1rem;
+    margin-left: 1rem;
+  }  
+
+  .button:hover {
+    background-color: black;
+    color: var(--light-one);
+  }
+
+  nav ul a{
+    display: inline-block;
+    padding: 0.9rem 1.2rem;
+    color: var(--dark-one);
+    font-size: 1.05rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+    transition: 0.3s;
+    background-color: var(--main-color);
+    color: var(--light-one);
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding: 0.9rem 2.1rem;
+    margin-left: 1rem;
+  }  
+
+  nav ul a:hover {
+    background-color: black;
+    color: var(--light-one);
+  }
+
+  element {
+    color: white
+  }

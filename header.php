@@ -1,4 +1,5 @@
 <nav style="background-color:#f7ecdf";>
+<link rel="stylesheet" href="./css/header.css" />
     <div class="container">
         <div class="nav-wrapper">
         <a href="index.php">
@@ -6,7 +7,7 @@
         </a>
             <ul class="right hide-on-med-and-down">
                 <li>
-                <a href="index1.php" style="color:#356D65;"><b>Home</b></a>
+                <a href="index1.php">Home</a>
                 </li>
                 <li> 
                 <?php
@@ -22,7 +23,7 @@
                         // mengambil data nama dari array
                         $nama = $data["nama"];
 
-                        echo "<a href='pelanggan.php' style='color:#356D65;'><b>$nama</b> (Pelanggan)</a>";
+                        echo "<a href='pelanggan.php'><b>$nama</b> (Pelanggan)</a>";
 
                     }else if ( isset($_SESSION["login-agen"]) && isset($_SESSION["agen"])){
                         // mengambil email dari session
@@ -34,14 +35,14 @@
                         // mengambil data nama dari array
                         $nama = $data["nama_laundry"];
 
-                        echo "<a href='agen.php' style='color:#356D65;'><b>$nama</b> (Agen)</a>";
+                        echo "<a href='agen.php'><b>$nama</b> (Agen)</a>";
 
                     }else if ( isset($_SESSION["login-admin"]) && isset($_SESSION["admin"])){
                         echo 
-                            "<a href='admin.php' style='color:#356D65;'><b><b>Admin</b></a>";
+                            "<a href='admin.php'><b><b>Admin</b></a>";
                         }else {
                             echo 
-                            "<a href='registrasi-page.php' style='color:#356D65;'><b><b>Registrasi</b></a>";
+                            "<a href='registrasi-page.php' class='button'>Registrasi</a>";
                         }
                 ?>
                 </li>
@@ -49,9 +50,9 @@
                 <?php
                     if ( isset($_SESSION["login-pelanggan"]) && isset($_SESSION["pelanggan"]) || isset($_SESSION["login-agen"]) && isset($_SESSION["agen"]) || isset($_SESSION["login-admin"]) && isset($_SESSION["admin"]) ){
                         echo 
-                        "<a href='logout.php' style='color:#356D65;'><b><b>Logout</b></a>";
+                        "<a href='logout.php'><b><b>Logout</b></a>";
                     }else {
-                        echo "<a href='login.php' style='color:#356D65;'><b><b>Login</b></a>";
+                        echo "<a href='login.php' class='button'>Login</a>";
                     }                    
                 ?>                                      
                 </li>
@@ -59,11 +60,11 @@
 
             <ul id="nav-mobile" class="sidenav">
                 <li>
-                    <a href="index1.php" style="color:#356D65;"><b>Home</b></a>
+                    <a href="index1.php" class='button'><Home</a>
                     <?php
                         if ( isset($_SESSION["login-pelanggan"]) && isset($_SESSION["pelanggan"]) || isset($_SESSION["login-agen"]) && isset($_SESSION["agen"]) || isset($_SESSION["login-admin"]) && isset($_SESSION["admin"]) ){
                             echo 
-                            "<a href='logout.php' style='color:#356D65;'><b><b>Logout</b></a>";
+                            "<a href='logout.php'><b><b>Logout</b></a>";
                         }else {
                             echo "<a href='login.php' style='color:#356D65;'><b><b>Login</b></a>";
                         }

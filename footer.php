@@ -1,42 +1,110 @@
 
 <br><br>
-<footer class="page-footer" style="background-color:#f7ecdf";>
+<link rel="stylesheet" href="./css/footer.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+<footer class="footer">
     <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-            <h5 class="text" style="color:#356D65;">Company Bio</h5>
-            <p style="color:#356D65;">
-                MyLaundry adalah sebuah projek yang ditujukan untuk tugas akhir mata kuliah "Rekayasa Perangkat Lunak" pada Program Studi Ilmu Komputer IPB University.
-                Akhirnya kelar makkkkkkkkk
-            </p>
-
-
-            </div>
-            <div class="col l3 s12">
-            <h5 class="text" style="color:#356D65;">MyLaundry</h5>
-            <ul>
-                <li><a class="text" style="color:#356D65;" href="index.php">Home</a></li>
-                <li><a class="text" style="color:#356D65;" href="term.php">Term and Condition</a></li>
-                <li><a class="text" style="color:#356D65;" href="registrasi.php">Registrasi</a></li>
-                <li><a class="text" style="color:#356D65;" href="login.php">Login</a></li>
-            </ul>
-            </div>
-            <div class="col l3 s12">
-            <h5 class="black-text">Developer</h5>
-            <ul>
-                <li><a class="text" style="color:#356D65;" href="team.php">Made Althaaf Naufal Gusendra</a></li>
-                <li><a class="text" style="color:#356D65;" href="team.php">Muhamad Surya Fauzan</a></li>
-                <li><a class="text" style="color:#356D65;" href="team.php"> Jihan Febriharvianti Wirawan</a></li>
-            </ul>
-            </div>
+      <div class="grid-4">
+        <div class="grid-4-col footer-about">
+          <h3 class="title-sm">About</h3>
+          <p class="text">
+          Projek MyLaundry merupakan sebuah proyek tugas akhir yang dibuat oleh Kelompok 9 Departemen Ilmu Komputer IPB University sebagai bagian dari mata kuliah "Rekayasa Perangkat Lunak" pada semester 4.
+          </p>
         </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container" style="color:#356D65;">
-            Made by <a class="orange-text text-darken-3" href="http://instagram.com/althaaf1601">Kelompok 9</a>
+
+        <div class="grid-4-col footer-links">
+          <h3 class="title-sm">Developer</h3>
+          <ul>
+            <li>
+              <a href="http://instagram.com/althaaf1601">Made Althaaf Naufal Gusendra</a>
+            </li>
+            <li>
+              <a href="http://instagram.com/suryaaf_">Muhamad Surya Fauzan</a>
+            </li>
+            <li>
+              <a href="hhtp://instagram.com/">Jihan Febriharvianti Wirawan</a>
+            </li>
+            <li>
+              <!-- <a href="#testimoni">Testimoni</a> -->
+              <li>
+              <!-- <a href="term.php">Syarat dan Ketentuan</a> -->
+            </li>
+            </li>
+          </ul>
         </div>
+
+        <div class="grid-4-col footer-links">
+          <h3 class="title-sm">Services</h3>
+          <ul>
+            <li>
+              <a href="#">Cuci</a>
+            </li>
+            <li>
+              <a href="#">Setrika</a>
+            </li>
+            <li>
+              <a href="#">Komplit</a>
+            </li>
+            <li>
+              <a href="#">Pembayaran Cash</a>
+            </li>
+            <li>
+              <a href="#">Cicilan 12x</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-4-col footer-newstletter">
+          <h3 class="title-sm">Subscribe</h3>
+          <p class="text">
+            Anda butuh info nyeleneh terkait kami?
+          </p>
+          <div class="footer-input-wrap">
+            <input type="email" class="footer-input" placeholder="Email" />
+            <a href="#" class="input-arrow">
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-footer">
+        <div class="copyright">
+          <p class="text">
+            Copyright&copy;2023 All rights reserved | Made by
+            <span>Kelompok 9 RPL</span>
+          </p>
+        </div>
+
+        <div class="followme-wrap">
+          <div class="followme">
+            <h3>Follow me</h3>
+            <span class="footer-line"></span>
+            <div class="social-media">
+              <a href="http://instagram.com/althaaf1601">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="http://instagram.com/althaaf1601">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="http://instagram.com/althaaf1601">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="http://instagram.com/althaaf1601">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="back-btn-wrap">
+            <a href="#" class="back-btn">
+              <i class="fas fa-chevron-up"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-</footer>
+  </footer>
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

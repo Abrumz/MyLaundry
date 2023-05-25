@@ -1,0 +1,28 @@
+:root {
+    --dark-one: #333;
+    --dark-two: #7a7a7a;
+    --main-color: #356D65;
+    --light-one: #fff;
+    --light-two: #f9fafb;
+    --light-three: #f6f7fb;
+  }
+
+.card-content {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    font-weight: 500;
+    }
+
+.btn-large.blue.darken-2 {
+    background-color: var(--main-color) !important;
+}
+
+.header.light.center {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 550;
+    margin: 1rem;
+    width: fit-content;
+}

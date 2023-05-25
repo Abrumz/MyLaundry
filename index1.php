@@ -66,8 +66,8 @@ if (isset($_POST["submitSorting"])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="./css/body.css" />
     <meta charset="UTF-8">
-    
     <title>MyLaundry</title>
     <?php include 'headtags.html' ?>
 </head>
@@ -136,7 +136,7 @@ if (isset($_POST["submitSorting"])){
                         </div>
                     <?php else : ?>
                         <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                            <a href="registrasi.php" id="download-button" class="btn-large waves-effect waves-light blue darken-3">Daftar Sekarang</a>
+                            <a href="registrasi-page.php" id="download-button" class="btn-large waves-effect waves-light blue darken-3">Daftar Sekarang</a>
                             <a href="login.php" id="download-button" class="btn-large waves-effect waves-light blue darken-3">Login</a>
                         </div>
                     <?php endif ?>
@@ -211,7 +211,7 @@ if (isset($_POST["submitSorting"])){
                         <div class="col s12 m4">
                             <div class="icon-block center">
                                 <h2 class="center light-blue-text"><a href="detail-agen.php?id=<?= $dataAgen['id_agen'] ?>"><img src="img/agen/<?= $dataAgen['foto'] ?>" class="circle resposive-img" width=60% /></a></h2>
-                                <h5 class="center"><a href="detail-agen.php?id=<?= $dataAgen['id_agen'] ?>"><?= $dataAgen["nama_laundry"] ?></a></h5>
+                                <h5 class="center"><a style="color: #356d65" href="detail-agen.php?id=<?= $dataAgen['id_agen'] ?>"><?= $dataAgen["nama_laundry"] ?></a></h5>
                                 <?php
                                     $temp = $dataAgen["id_agen"];
                                     $queryStar = mysqli_query($connect,"SELECT * FROM transaksi WHERE id_agen = '$temp'");

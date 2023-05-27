@@ -161,7 +161,7 @@ if (isset($_POST["submitSorting"])){
         <div id="search">
             <ul class="pagination center">
             <?php if( $halamanAktif > 1 ) : ?>
-                <li class="disabled-effect blue darken-1">
+                <li class="waves-effect blue darken-1">
                     <!-- halaman pertama -->
                     <a href="?page=<?= $halamanAktif - 1; ?>"><i class="material-icons">chevron_left</i></a>
                 </li>

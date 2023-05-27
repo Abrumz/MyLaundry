@@ -81,7 +81,7 @@ include 'connect-db.php';
 
             <div class="column-2">
               <h1 class="header-title">Mau <span style="color:#356D65; font-weight:bold; text-decoration:underline;">Nyuci</span> Tapi <span style="color:#356D65; font-weight:bold; text-decoration:underline;">Gak Ada Waktu</span> Buat Nyuci?</h1>
-              <p class="text">
+              <p class="text" style="text-align: justify">
                 Serahin aja ke kita buat <span style="color:#356D65; font-weight:bold;">dicuci</span> dan kamu bisa <b>lanjut ngerjain tugasmu</b>
                 atau beraktivitas di luar rumah tanpa khawatir cucian menumpuk di
                 rumah, kos atau di kontrakan.
@@ -394,7 +394,7 @@ include 'connect-db.php';
       <div class="grid-4">
         <div class="grid-4-col footer-about">
           <h3 class="title-sm">About</h3>
-          <p class="text">
+          <p class="text" style="text-align: justify">
           Projek MyLaundry merupakan sebuah proyek tugas akhir yang dibuat oleh Kelompok 9 Departemen Ilmu Komputer IPB University sebagai bagian dari mata kuliah "Rekayasa Perangkat Lunak" pada semester 4.
           </p>
         </div>

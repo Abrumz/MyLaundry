@@ -7,7 +7,7 @@
       <div class="grid-4">
         <div class="grid-4-col footer-about">
           <h3 class="title-sm">About</h3>
-          <p class="text">
+          <p class="text" style="text-align: justify">
           Projek MyLaundry merupakan sebuah proyek tugas akhir yang dibuat oleh Kelompok 9 Departemen Ilmu Komputer IPB University sebagai bagian dari mata kuliah "Rekayasa Perangkat Lunak" pada semester 4.
           </p>
         </div>
@@ -22,7 +22,7 @@
               <a href="http://instagram.com/suryaaf_">Muhamad Surya Fauzan</a>
             </li>
             <li>
-              <a href="hhtp://instagram.com/">Jihan Febriharvianti Wirawan</a>
+              <a href="http://instagram.com/jihanfebriharr">Jihan Febriharvianti Wirawan</a>
             </li>
             <li>
               <!-- <a href="#testimoni">Testimoni</a> -->

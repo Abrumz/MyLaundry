@@ -33,6 +33,7 @@ $data = mysqli_fetch_assoc($data);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "headtags.html"; ?>
+    <link rel="stylesheet" href="./css/body.css" />
     <title>Data Penggunan - <?= $data["nama"] ?></title>
 </head>
 <body>
@@ -51,7 +52,7 @@ $data = mysqli_fetch_assoc($data);
                         <img src="img/pelanggan/<?= $data['foto'] ?>" class="circle responsive-img" width=25% alt="">
                     </div>
                     <div class="file-field input-field">
-                        <div class="btn blue darken-2">
+                        <div class="btn" style="background-collor:#356D60">
                             <span>Foto Profil</span>
                             <input type="file" name="foto" id="foto">
                         </div>

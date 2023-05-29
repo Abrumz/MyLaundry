@@ -27,9 +27,17 @@ cekLogin();
     
         <div class='canvas'>
     <?php
-        for ($i = 0; $i < 50; $i++) {
-            echo "<img class='bubble'>";
-        }
+    $images = array('img/kotop.png', 'img/jey.png', 'img/surya.png');
+    shuffle($images); // Acak urutan gambar
+    
+    for ($i = 0; $i < 50; $i++) {
+        $image = $images[$i % count($images)]; // Mengambil gambar secara bergantian
+        echo "<img src='$image' class='bubble'>";
+    }
+    
+        // for ($i = 0; $i < 50; $i++) {
+        //     echo "<img class='bubble'>";
+        // }
     ?>
 </div>
 

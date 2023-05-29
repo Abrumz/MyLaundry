@@ -39,7 +39,7 @@ include 'connect-db.php';
                 <span class="card-title black-text" style="text-align: justify; font-weight: 500;">Syarat dan Ketentuan :</span>
                 <p style="text-align: justify;">
                 1. Memiliki lokasi usaha laundry yang strategis dan teridentifikasi oleh google map<br />
-                2. Agen memiliki nama usaha serta logo perusahaan agar dapat diposting di website laundryKU<br />
+                2. Agen memiliki nama usaha serta logo perusahaan agar dapat diposting di website MyLaundry<br />
                 3. Mampu memberikan layanan Laundry dengan kualitas prima dan harga yang bersaing<br />
                 4. Memiliki driver yang bersedia untuk melakukan penjemputan dan pengantaran terhadap laundry pelanggan<br />
                 5. Harga dari jenis laundry ditentukan berdasarkan berat per kilo (kg) ditambah dengan biaya ongkos kirim<br />

@@ -34,7 +34,7 @@ cekLogin();
                 </div>
                 <div class="card-content" style="text-align: justify">
                     <p>1.	Memiliki lokasi usaha laundry yang strategis dan teridentifikasi oleh google map</p>
-                    <p>2.	Agen memiliki nama usaha serta logo perusahaan agar dapat diposting di website laundryKU</p>
+                    <p>2.	Agen memiliki nama usaha serta logo perusahaan agar dapat diposting di website Mylaundry</p>
                     <p>3.	Mampu memberikan layanan Laundry dengan kualitas prima dan harga yang bersaing</p>
                     <p>4.	Memiliki driver yang bersedia untuk melakukan penjemputan dan pengantaran terhadap laundry pelanggan</p>
                     <p>...	</p>

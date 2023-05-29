@@ -195,7 +195,7 @@ if ( isset($_POST["registrasi"]) ){
         $_SESSION["login-pelanggan"] = true;
         echo "
             <script>
-                Swal.fire('Pendaftaran Berhasil','Selamat Bergabung Dengan LaundryKu','success').then(function() {
+                Swal.fire('Pendaftaran Berhasil','Selamat Bergabung Dengan MyLaundry','success').then(function() {
                     window.location = 'index1.php';
                 });
             </script>

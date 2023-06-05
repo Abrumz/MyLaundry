@@ -43,7 +43,7 @@ $idAgen = $agen["id_agen"];
                     <img src="img/agen/<?= $agen['foto'] ?>" class="circle responsive-img" width=25% alt="">
                 </div>
                 <div class="file-field input-field">
-                    <div class="btn blue darken-2">
+                    <div class="btn">
                         <span>Foto Profil</span>
                         <input type="file" name="foto" id="foto">
                     </div>
@@ -83,7 +83,7 @@ $idAgen = $agen["id_agen"];
                         </li>
                         <li>
                             <div class="center">
-                                <button class="btn-large blue darken-2" type="submit" name="simpan">Simpan Data</button>
+                                <button class="btn" type="submit" name="simpan">Simpan Data</button>
                             </div>
                         </li>
                         

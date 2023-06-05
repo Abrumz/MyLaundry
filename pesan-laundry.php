@@ -46,7 +46,7 @@ $pelanggan = mysqli_fetch_assoc($query);
     <!-- info laundry -->
     <div class="row">
         <div class="col s2 offset-s4">
-            <img src="img/logo.png" width="70%" />
+        <img src="img/agen/<?= $agen['foto'] ?>" class="circle responsive-img" width="70%" />
             <a id="download-button" class="btn waves-effect waves-light red darken-3" href="pesan-laundry.php?id=<?= $idAgen ?>">PESAN LAUNDRY</a>
         </div>
         <div class="col s6">
